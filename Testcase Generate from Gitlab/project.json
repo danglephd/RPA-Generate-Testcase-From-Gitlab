@@ -47,14 +47,14 @@
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "a2562565-08f9-405c-81ba-9a2e8ea93c64",
+      "filePath": "Main_fc.xaml",
+      "uniqueId": "632eb344-bd33-47a9-a933-eec3d2006639",
       "input": [],
       "output": []
     },
     {
-      "filePath": "Main_fc.xaml",
-      "uniqueId": "632eb344-bd33-47a9-a933-eec3d2006639",
+      "filePath": "Get List Issue From Gitlab.xaml",
+      "uniqueId": "827487ad-17ff-47af-9e54-3e84e41492c6",
       "input": [],
       "output": []
     }

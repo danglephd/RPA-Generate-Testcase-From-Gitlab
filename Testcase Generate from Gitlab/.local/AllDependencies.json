@@ -20737,9 +20737,9 @@
     "restore": {
       "projectUniqueName": "Testcase Generate from Gitlab",
       "projectName": "Testcase Generate from Gitlab",
-      "projectPath": "D:\\source\\RPA\\Testcase Generate from Gitlab\\.local",
+      "projectPath": "D:\\source\\RPA\\RPA-Generate-Testcase-From-Gitlab\\Testcase Generate from Gitlab\\.local",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\source\\RPA\\Testcase Generate from Gitlab\\.local"
+      "outputPath": "D:\\source\\RPA\\RPA-Generate-Testcase-From-Gitlab\\Testcase Generate from Gitlab\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
