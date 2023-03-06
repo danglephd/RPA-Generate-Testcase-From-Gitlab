@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1210.6666666666667,1893.3333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1210.6666666666667,1993.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Make_report_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -91,13 +91,9 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Make_report" sap:VirtualizedContainerService.HintSize="684.6666666666666,1828.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Make_report" sap:VirtualizedContainerService.HintSize="684.6666666666666,1928.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="v_InputFile">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">input/RPA-result-template.xlsx</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="input/RPA-result-template.xlsx" Name="v_InputFile" />
       <Variable x:TypeArguments="x:String" Name="v_OutputFolder" />
       <Variable x:TypeArguments="x:String" Name="v_PathOutputFile" />
       <Variable x:TypeArguments="x:String" Name="v_ResultFileName" />
@@ -178,16 +174,8 @@
                       <Variable x:TypeArguments="x:String" Name="v_TestIssueDesc" />
                       <Variable x:TypeArguments="ui:Browser" Name="v_browser" />
                       <Variable x:TypeArguments="s:Object[]" Name="v_TestDataRow" />
-                      <Variable x:TypeArguments="x:String" Name="v_Sheet">
-                        <Variable.Default>
-                          <Literal x:TypeArguments="x:String">RPA Result</Literal>
-                        </Variable.Default>
-                      </Variable>
-                      <Variable x:TypeArguments="x:Int32" Name="v_index">
-                        <Variable.Default>
-                          <Literal x:TypeArguments="x:Int32" Value="1" />
-                        </Variable.Default>
-                      </Variable>
+                      <Variable x:TypeArguments="x:String" Default="RPA Result" Name="v_Sheet" />
+                      <Variable x:TypeArguments="x:Int32" Default="1" Name="v_index" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -235,5 +223,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
+    <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="622.6666666666666,60" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[v_Workbook]" />
   </Sequence>
 </Activity>
