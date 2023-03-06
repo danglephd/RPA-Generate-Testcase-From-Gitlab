@@ -312,7 +312,7 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="687.3333333333334,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Test Done 2&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="687.3333333333334,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Test Done 1&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">False</x:Boolean>

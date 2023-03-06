@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main_fc" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1174.6666666666667,817.3333333333334" sap2010:WorkflowViewState.IdRef="Main_fc_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main_fc" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="624,702" sap2010:WorkflowViewState.IdRef="Main_fc_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
       <x:String>System.Activities</x:String>
@@ -78,11 +78,9 @@
   <Flowchart DisplayName="Main_fc" sap:VirtualizedContainerService.HintSize="634,637.3333333333334" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="v_GitlabIssueDt" />
-      <Variable x:TypeArguments="x:String" Name="v_GitlabProjectUrl">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">https://git.iptp.net/erp/erp-server/-/issues</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="https://git.iptp.net/erp/erp-server/-/issues" Name="v_GitlabProjectUrl" />
+      <Variable x:TypeArguments="x:String" Default="erp-server" Name="v_Project" />
+      <Variable x:TypeArguments="sd:DataTable" Name="v_TestIssueDt" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -130,6 +128,12 @@
               <InArgument x:TypeArguments="x:String" x:Key="a_GitlabProjectUrl">
                 <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_GitlabProjectUrl" />
               </InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="a_TestIssueDt">
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="v_TestIssueDt" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="a_Project">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_Project" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -141,5 +145,24 @@
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
+    <FlowStep>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,335.1666666666667</av:Point>
+          <av:Size x:Key="ShapeSize">200,54</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Create Test case file.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Create Test case file.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="a_TestIssueDt">[v_TestIssueDt]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="a_Project">[v_Project]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeWorkflowFile>
+    </FlowStep>
   </Flowchart>
 </Activity>
