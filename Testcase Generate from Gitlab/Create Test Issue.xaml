@@ -121,11 +121,7 @@
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="v_ResultFileName" />
       <Variable x:TypeArguments="x:String" Name="v_PathResultFile" />
-      <Variable x:TypeArguments="x:String" Name="v_InputResultFile">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">input/RPA-result-template.xlsx</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="input/RPA-result-template.xlsx" Name="v_InputResultFile" />
       <Variable x:TypeArguments="x:String" Name="v_OutputFolder" />
       <Variable x:TypeArguments="x:Boolean" Name="v_isExistsOutputFolder" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="v_index" />
@@ -567,7 +563,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WaitUiElementAppear>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SimulateType="{x:Null}" Activate="False" ClickBeforeTyping="True" DelayMS="100" DisplayName="Type Into Issue link" EmptyField="True" sap:VirtualizedContainerService.HintSize="537.3333333333334,115.33333333333333" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" Text="[CurrentRow(&quot;IssueNumber&quot;).ToString]">
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SimulateType="{x:Null}" Activate="False" ClickBeforeTyping="True" DelayMS="100" DisplayName="Type Into Issue link" EmptyField="True" sap:VirtualizedContainerService.HintSize="537.3333333333334,115.33333333333333" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" Text="[CurrentRow(&quot;IssueNumber&quot;).ToString + &quot; &quot;]">
                       <ui:TypeInto.Target>
                         <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_LinkItem]" Id="e07e848f-90b3-4de2-b4a8-65c6b5be1fda" WaitForReady="COMPLETE">
                           <ui:Target.TimeoutMS>
@@ -643,7 +639,7 @@
                               <OutArgument x:TypeArguments="x:String">[v_TestFileName]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">[String.Format("Testcase-{0}-{1}.xlsx", CurrentRow(0).ToString, "CurrentRow(1).ToString")]</InArgument>
+                              <InArgument x:TypeArguments="x:String">[String.Format("Testcase-{0}-{1}.xlsx", CurrentRow(0).ToString, v_TestIssueNo)]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                           <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25.33333333333333" sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -754,25 +750,15 @@ v_TestFilePath
             </ui:CloseApplication>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Create Test case file.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="633.3333333333334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Create Test case file.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">
-                  <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="v_TestDataRow" />
-                </InArgument>
+                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">[v_TestDataRow]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="633.3333333333334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Make report.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="a_Project">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="a_Project" />
-                </InArgument>
-                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">
-                  <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="v_TestDataRow" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:Int32" x:Key="a_index">
-                  <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="v_index" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="a_PathOutputFile">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_PathResultFile" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="a_Project">[a_Project]</InArgument>
+                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">[v_TestDataRow]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="a_index">[v_index]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="a_PathOutputFile">[v_PathResultFile]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
