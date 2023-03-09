@@ -1,7 +1,7 @@
 {
   "name": "Testcase Generate from Gitlab",
   "description": "Blank Process",
-  "main": "Main_fc.xaml",
+  "main": "FC\\FC - Create Test Issue.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.16.2]",
     "UiPath.Mail.Activities": "[1.18.2]",
@@ -47,14 +47,14 @@
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main_fc.xaml",
-      "uniqueId": "632eb344-bd33-47a9-a933-eec3d2006639",
+      "filePath": "Get List Issue From Gitlab.xaml",
+      "uniqueId": "827487ad-17ff-47af-9e54-3e84e41492c6",
       "input": [],
       "output": []
     },
     {
-      "filePath": "Get List Issue From Gitlab.xaml",
-      "uniqueId": "827487ad-17ff-47af-9e54-3e84e41492c6",
+      "filePath": "FC\\FC - Create Test Issue.xaml",
+      "uniqueId": "f82e15e8-32c7-484b-be1e-7df6b8344ab4",
       "input": [],
       "output": []
     }
