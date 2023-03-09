@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1210.6666666666667,3422</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1210.6666666666667,3598.6666666666665</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Update_Initital_Issue_Label_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -78,7 +78,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Update_Initital_Issue_Label" sap:VirtualizedContainerService.HintSize="656.6666666666666,3357.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Update_Initital_Issue_Label" sap:VirtualizedContainerService.HintSize="656.6666666666666,3534" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="v_Browser" />
     </Sequence.Variables>
@@ -87,19 +87,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="594.6666666666666,3119.3333333333335" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[v_Browser]" Url="[a_url]">
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="594.6666666666666,3296" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[v_Browser]" Url="[a_url]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560.6666666666666,3015.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560.6666666666666,3192" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Seq - Open Initial Issue" sap:VirtualizedContainerService.HintSize="498.6666666666667,2904.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Seq - Open Initial Issue" sap:VirtualizedContainerService.HintSize="498.6666666666667,3081.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <Sequence.Variables>
                 <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="v_ChilElmt" />
                 <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="v_Need4TestItem" />
@@ -313,7 +313,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InterruptibleDoWhile>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="100" DisplayName="Click to Edit Label" sap:VirtualizedContainerService.HintSize="436.6666666666667,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True" SimulateClick="False">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="100" DisplayName="Click to Edit Label" sap:VirtualizedContainerService.HintSize="436.6666666666667,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -328,6 +328,18 @@
                   <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_TestcaseItem(0)]" Id="76094cd6-7add-4be4-81bb-40435b0705da" TimeoutMS="3000" WaitForReady="COMPLETE" />
                 </ui:Click.Target>
               </ui:Click>
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="436.6666666666667,136.66666666666666" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="esc" KeyModifiers="None" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_TestcaseItem(0)]" Id="5d87435a-5690-4467-8e3f-23d8df76315a">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
             </Sequence>
           </Sequence>
         </ActivityAction>
