@@ -122,12 +122,12 @@
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="s:Object[]" xml:space="preserve">[{
-	"1",	
-	"95",
-	"https://git.iptp.net/erp/erp-server/-/issues/95", 	
-	"96", 
-	"https://git.iptp.net/erp/erp-server/-/issues/96", 	
-	"D:\Testcase\RPA\erp-server\Testcase-Issue-95\Testcase-95-96.xlsx",
+	"2",	
+	"93",
+	"https://git.iptp.net/erp/erp-server/-/issues/93", 	
+	"97", 
+	"https://git.iptp.net/erp/erp-server/-/issues/97", 	
+	"D:\Testcase\RPA\erp-server\Testcase-Issue-93\Testcase-93-97.xlsx",
 	"erp-server",	
 	"Created"
 }]</InArgument>

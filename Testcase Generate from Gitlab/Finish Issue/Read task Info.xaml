@@ -90,19 +90,19 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_task_Info" sap:VirtualizedContainerService.HintSize="496,550.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_task_Info" sap:VirtualizedContainerService.HintSize="531.3333333333334,706" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[a_ResultTestIssueDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,440" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[a_ResultTestIssueDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="469.3333333333333,595.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,320" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="435.3333333333333,475.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:Browser" Name="v_Browser" />
             </Sequence.Variables>
@@ -111,7 +111,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[Not CurrentRow(&quot;Test case State&quot;).Equals(&quot;Finish&quot;)]" DisplayName="Skip if not Finish" sap:VirtualizedContainerService.HintSize="338,54" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[Not CurrentRow(&quot;Test case State&quot;).Equals(&quot;Finish&quot;)]" DisplayName="Skip if not Finish" sap:VirtualizedContainerService.HintSize="373.3333333333333,54" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -138,10 +138,17 @@
                 </Sequence>
               </If.Else>
             </If>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Finish Issue\Update Test Issue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Finish Issue\Update Test Issue.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Finish Issue\Update Test Issue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="373.3333333333333,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Finish Issue\Update Test Issue.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">
                   <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="CurrentRow.ItemArray" />
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Finish Issue\Update Finish Initial Issue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="373.3333333333333,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Finish Issue\Update Finish Initial Issue.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="a_url">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CurrentRow(&quot;Initial Issue link&quot;).ToString" />
                 </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
