@@ -1,6 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Main_fc" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1210.6666666666667,817.3333333333334" sap2010:WorkflowViewState.IdRef="Main_fc_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="27">
+    <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -28,10 +28,11 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="82">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="84">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -73,77 +74,204 @@
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Main_fc" sap:VirtualizedContainerService.HintSize="634,637.3333333333334" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="v_GitlabIssueDt" />
-      <Variable x:TypeArguments="x:String" Name="v_GitlabProjectUrl">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">https://git.iptp.net/erp/erp-server/-/issues</Literal>
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="x:String" Name="v_Project">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">erp-server</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="https://git.iptp.net/andre/xm-api/-/issues" Name="v_GitlabProjectUrl" />
+      <Variable x:TypeArguments="x:String" Default="xm-api" Name="v_Project" />
       <Variable x:TypeArguments="sd:DataTable" Name="v_TestIssueDt" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="v_ProjectInfoList" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="v_index" />
+      <Variable x:TypeArguments="x:String" Name="v_PathResultAllProjectFile" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,74.66666666666667</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.16666666666667 300,127.16666666666667</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.16666666666667 300,127.66666666666666</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID1</x:Reference>
     </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID0">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,263</av:Point>
+          <av:Size x:Key="ShapeSize">200,54</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Project Info list" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[v_ProjectInfoList.Keys]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="x:String">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="493.3333333333333,552.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[v_Project]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentItem]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[v_GitlabProjectUrl]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[v_ProjectInfoList(currentItem)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get List Issue From Gitlab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="431.3333333333333,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Get List Issue From Gitlab.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="a_GitlabIssueDt">[v_GitlabIssueDt]</OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="a_GitlabProjectUrl">[v_GitlabProjectUrl]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Create Test Issue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="431.3333333333333,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Create Test Issue.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="a_GitlabIssueDt">
+                    <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="v_GitlabIssueDt" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="a_GitlabProjectUrl">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_GitlabProjectUrl" />
+                  </InArgument>
+                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="a_TestIssueDt">
+                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="v_TestIssueDt" />
+                  </OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="a_Project">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_Project" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="a_PathResultAllProjectFile">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_PathResultAllProjectFile" />
+                  </InArgument>
+                  <InOutArgument x:TypeArguments="x:Int32" x:Key="a_index">
+                    <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_index" />
+                  </InOutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEach.Body>
+      </ui:ForEach>
+    </FlowStep>
     <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,127.16666666666667</av:Point>
-          <av:Size x:Key="ShapeSize">200,54</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,181.16666666666669 300,231.16666666666669</av:PointCollection>
+          <av:Point x:Key="ShapeLocation">200,127.66666666666666</av:Point>
+          <av:Size x:Key="ShapeSize">200,84.66666666666667</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,212.33333333333331 300,263</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get List Issue From Gitlab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Get List Issue From Gitlab.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="a_GitlabIssueDt">[v_GitlabIssueDt]</OutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="a_GitlabProjectUrl">[v_GitlabProjectUrl]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
+      <Sequence sap:VirtualizedContainerService.HintSize="493.33333333333326,578.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="v_ResultAllProjectFileName" />
+          <Variable x:TypeArguments="x:String" Default="D:\Testcase\RPA\" Name="v_OutputFolderAllProject" />
+          <Variable x:TypeArguments="x:String" Name="v_InputResultFile">
+            <Variable.Default>
+              <Literal x:TypeArguments="x:String">input/RPA-all-result-template.xlsx</Literal>
+            </Variable.Default>
+          </Variable>
+        </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-      </ui:InvokeWorkflowFile>
-      <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID0">
+        <Assign sap:VirtualizedContainerService.HintSize="431.3333333333333,66.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[v_ProjectInfoList]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" xml:space="preserve">[New Dictionary(Of String, String) From {
+	{"erp-server", "https://git.iptp.net/erp/erp-server/-/issues"},
+	{"erp-web", "https://git.iptp.net/erp/erp-web/-/issues"},
+	{"xm-web", "https://git.iptp.net/xm/xm-web/-/issues"},
+	{"xm-api",	 "https://git.iptp.net/andre/xm-api/-/issues"}
+}]</InArgument>
+          </Assign.Value>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">200,231.16666666666669</av:Point>
-              <av:Size x:Key="ShapeSize">200,54</av:Size>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Create Test Issue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Create Test Issue.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="a_GitlabIssueDt">[v_GitlabIssueDt]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="a_GitlabProjectUrl">[v_GitlabProjectUrl]</InArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="a_TestIssueDt">[v_TestIssueDt]</OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="a_Project">[v_Project]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:InvokeWorkflowFile>
-        </FlowStep>
+        </Assign>
+        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431.3333333333333,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[v_ResultAllProjectFileName]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[String.Format("RPA-result-{0}.xlsx", DateTime.Now.ToString("yyyyMMdd"))]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[v_OutputFolderAllProject]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">D:\Testcase\RPA\</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[v_PathResultAllProjectFile]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[String.Format("{0}/{1}", v_OutputFolderAllProject, v_ResultAllProjectFileName)]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:MultipleAssign>
+        <ui:CopyFile ContinueOnError="{x:Null}" Destination="[v_PathResultAllProjectFile]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="431.3333333333333,159.33333333333334" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[v_InputResultFile]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:CopyFile>
+      </Sequence>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID0</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID0</x:Reference>
   </Flowchart>
 </Activity>
