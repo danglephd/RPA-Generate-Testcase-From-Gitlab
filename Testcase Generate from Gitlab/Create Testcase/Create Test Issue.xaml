@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1210.6666666666667,2510</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1210,2510</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Create_Test_Issue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -305,7 +305,7 @@
             </ui:MultipleAssign>
             <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Force to browser at first." Condition="[v_BrowserExist]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="466.6666666666667,84.66666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
               <ui:InterruptibleDoWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,451.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,454" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd1:Process[]" Name="v_BrowserArr" />
                   </Sequence.Variables>
@@ -754,12 +754,17 @@ v_TestFilePath
                 <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_Browser]" Id="e0acc34b-627f-4127-aa16-e2ddb2120689" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:CloseApplication.Target>
             </ui:CloseApplication>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Create Test case file.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Create Test case file.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Create Test case file.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Create Testcase\Create Test case file.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">[v_TestDataRow]</InArgument>
+                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">
+                  <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="v_TestDataRow" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="a_Project">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="a_Project" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Make report.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Create Testcase\Make report.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="a_Project">[a_Project]</InArgument>
                 <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">[v_TestDataRow]</InArgument>
@@ -767,7 +772,7 @@ v_TestFilePath
                 <InArgument x:TypeArguments="x:String" x:Key="a_PathOutputFile">[v_PathResultSingleProjectFile]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make full report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Make full report.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make full report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Create Testcase\Make full report.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="a_Project">[a_Project]</InArgument>
                 <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">[v_TestDataRow]</InArgument>
