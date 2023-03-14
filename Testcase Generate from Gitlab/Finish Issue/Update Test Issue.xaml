@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1210,3174.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1210,3365.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_task_Info_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -107,7 +107,7 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_task_Info" sap:VirtualizedContainerService.HintSize="594.6666666666666,3110" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_task_Info" sap:VirtualizedContainerService.HintSize="594.6666666666666,3300.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="v_Browser" />
     </Sequence.Variables>
@@ -116,18 +116,26 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="532.6666666666666,177.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="338,66.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_2">
-        <Assign.To>
-          <OutArgument x:TypeArguments="s:Object[]">[a_CurrentRow]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="s:Object[]" xml:space="preserve">[{
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="532.6666666666666,368" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,288" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,177.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="338,66.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s:Object[]">[a_CurrentRow]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s:Object[]" xml:space="preserve">[{
 	"3",	
 	"58",
 	"https://git.iptp.net/erp/erp-server/-/issues/58", 	
@@ -137,9 +145,12 @@
 	"erp-server",	
 	"Finish"
 }]</InArgument>
-        </Assign.Value>
-      </Assign>
-    </Sequence>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
     <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" ContinueOnError="False" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="532.6666666666666,2654.6666666666665" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[v_Browser]" Url="[a_CurrentRow(4).ToString]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
