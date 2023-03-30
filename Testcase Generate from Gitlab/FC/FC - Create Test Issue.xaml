@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Activity mc:Ignorable="sap sap2010" x:Class="Main_fc" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1210.6666666666667,817.3333333333334" sap2010:WorkflowViewState.IdRef="Main_fc_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main_fc" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208.6666666666665,817.3333333333333" sap2010:WorkflowViewState.IdRef="Main_fc_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="54">
+    <scg:List x:TypeArguments="x:String" Capacity="28">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -33,7 +32,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="84">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -86,8 +85,14 @@
       <Variable x:TypeArguments="x:String" Default="xm-api" Name="v_Project" />
       <Variable x:TypeArguments="sd:DataTable" Name="v_TestIssueDt" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="v_ProjectInfoList" />
-      <Variable x:TypeArguments="x:Int32" Default="1" Name="v_index" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="v_MainReportIndex" />
       <Variable x:TypeArguments="x:String" Name="v_PathResultAllProjectFile" />
+      <Variable x:TypeArguments="sd:DataTable" Name="v_MainReportDT" />
+      <Variable x:TypeArguments="x:String" Name="v_ResultFilePath">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">D:\Testcase\RPA\RPA-result.xlsx</Literal>
+        </Variable.Default>
+      </Variable>
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -98,22 +103,25 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,263</av:Point>
+          <av:Point x:Key="ShapeLocation">200,363</av:Point>
           <av:Size x:Key="ShapeSize">200,54</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Project Info list" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[v_ProjectInfoList.Keys]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Project Info list" sap:VirtualizedContainerService.HintSize="530,682" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[v_ProjectInfoList.Keys]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
             </ActivityAction.Argument>
             <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="493.3333333333333,552.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Int32" Default="1" Name="v_index" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -172,6 +180,12 @@
                   <InOutArgument x:TypeArguments="x:Int32" x:Key="a_index">
                     <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_index" />
                   </InOutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="a_ResultFilePath">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_ResultFilePath" />
+                  </InArgument>
+                  <InOutArgument x:TypeArguments="x:Int32" x:Key="a_MainReportIndex">
+                    <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_MainReportIndex" />
+                  </InOutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -184,23 +198,19 @@
         </ui:ForEach.Body>
       </ui:ForEach>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID1">
+    <FlowStep x:Name="__ReferenceID2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.66666666666666</av:Point>
           <av:Size x:Key="ShapeSize">200,84.66666666666667</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,212.33333333333331 300,263</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,212.33333333333331 300,260.03999999999996</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap:VirtualizedContainerService.HintSize="493.33333333333326,578.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence sap:VirtualizedContainerService.HintSize="200,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="v_ResultAllProjectFileName" />
           <Variable x:TypeArguments="x:String" Default="D:\Testcase\RPA\" Name="v_OutputFolderAllProject" />
-          <Variable x:TypeArguments="x:String" Name="v_InputResultFile">
-            <Variable.Default>
-              <Literal x:TypeArguments="x:String">input/RPA-all-result-template.xlsx</Literal>
-            </Variable.Default>
-          </Variable>
+          <Variable x:TypeArguments="x:String" Default="input/RPA-all-result-template.xlsx" Name="v_InputResultFile" />
         </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -271,8 +281,38 @@
         </ui:CopyFile>
       </Sequence>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID0</x:Reference>
+        <FlowStep x:Name="__ReferenceID1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">200,260.03999999999996</av:Point>
+              <av:Size x:Key="ShapeSize">200,54</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,314.03999999999996 300,363</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read File\Read Issue List from File.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Read File\Read Issue List from File.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="a_ResultTestIssueDT">
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="v_MainReportDT" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="a_ResultFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_ResultFilePath" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="a_index">
+                <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_MainReportIndex" />
+              </OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <FlowStep.Next>
+            <x:Reference>__ReferenceID0</x:Reference>
+          </FlowStep.Next>
+        </FlowStep>
       </FlowStep.Next>
     </FlowStep>
+    <x:Reference>__ReferenceID1</x:Reference>
   </Flowchart>
 </Activity>

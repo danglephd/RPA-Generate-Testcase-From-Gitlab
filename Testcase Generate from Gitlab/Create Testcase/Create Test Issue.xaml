@@ -6,14 +6,19 @@
     <x:Property Name="a_Project" Type="InArgument(x:String)" />
     <x:Property Name="a_PathResultAllProjectFile" Type="InArgument(x:String)" />
     <x:Property Name="a_index" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="a_ResultFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="a_MainReportIndex" Type="InOutArgument(x:Int32)" />
   </x:Members>
   <this:Create_Test_Issue.a_PathResultAllProjectFile>
     <InArgument x:TypeArguments="x:String" />
   </this:Create_Test_Issue.a_PathResultAllProjectFile>
+  <this:Create_Test_Issue.a_ResultFilePath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Create_Test_Issue.a_ResultFilePath>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1210,2510</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1208.6666666666667,2510</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Create_Test_Issue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -129,7 +134,6 @@
       <Variable x:TypeArguments="x:String" Default="input/RPA-result-template.xlsx" Name="v_InputResultFile" />
       <Variable x:TypeArguments="x:String" Name="v_OutputFolderSingleProject" />
       <Variable x:TypeArguments="x:Boolean" Name="v_isExistsOutputFolderSingleProject" />
-      <Variable x:TypeArguments="x:Int32" Default="1" Name="v_index" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -278,20 +282,20 @@
                       <InArgument x:TypeArguments="x:String">[string.format("Test for issue #{0}", CurrentRow("IssueNumber"))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
-                  <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25.33333333333333" sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Int32">[v_index]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Int32">[v_index + 1]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                  <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25.33333333333333" sap2010:WorkflowViewState.IdRef="AssignOperation_14">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:Int32">[a_index]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:Int32">[a_index + 1]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[a_MainReportIndex]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">[a_MainReportIndex + 1]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -756,20 +760,8 @@ v_TestFilePath
             </ui:CloseApplication>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Create Test case file.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Create Testcase\Create Test case file.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">
-                  <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="v_TestDataRow" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="a_Project">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="a_Project" />
-                </InArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Create Testcase\Make report.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="a_Project">[a_Project]</InArgument>
                 <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">[v_TestDataRow]</InArgument>
-                <InArgument x:TypeArguments="x:Int32" x:Key="a_index">[v_index]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="a_PathOutputFile">[v_PathResultSingleProjectFile]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="a_Project">[a_Project]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make full report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Create Testcase\Make full report.xaml">
@@ -778,6 +770,22 @@ v_TestFilePath
                 <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">[v_TestDataRow]</InArgument>
                 <InArgument x:TypeArguments="x:Int32" x:Key="a_index">[a_index]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="a_PathOutputFile">[a_PathResultAllProjectFile]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make full report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="466.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Create Testcase\Make full report.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="a_Project">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="a_Project" />
+                </InArgument>
+                <InArgument x:TypeArguments="s:Object[]" x:Key="a_CurrentRow">
+                  <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="v_TestDataRow" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="a_index">
+                  <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="a_MainReportIndex" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="a_PathOutputFile">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="a_ResultFilePath" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
