@@ -80,13 +80,6 @@
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Main_fc" sap:VirtualizedContainerService.HintSize="634,637.3333333333334" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="v_GitlabIssueDt" />
-      <Variable x:TypeArguments="x:String" Default="https://git.iptp.net/andre/xm-api/-/issues" Name="v_GitlabProjectUrl" />
-      <Variable x:TypeArguments="x:String" Default="xm-api" Name="v_Project" />
-      <Variable x:TypeArguments="sd:DataTable" Name="v_TestIssueDt" />
-      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="v_ProjectInfoList" />
-      <Variable x:TypeArguments="x:Int32" Default="1" Name="v_index" />
-      <Variable x:TypeArguments="x:String" Name="v_PathResultAllProjectFile" />
       <Variable x:TypeArguments="sd:DataTable" Name="v_ResultTestIssueDT" />
       <Variable x:TypeArguments="x:String" Default="D:\Testcase\RPA\RPA-result.xlsx" Name="v_ResultFilePath" />
     </Flowchart.Variables>
@@ -129,12 +122,8 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Finish Issue\Read task Info.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,115.33333333333331" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Finish Issue\Read task Info.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="a_ResultTestIssueDT">
-                <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="v_ResultTestIssueDT" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="a_ResultFilePath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_ResultFilePath" />
-              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="a_ResultTestIssueDT">[v_ResultTestIssueDT]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="a_ResultFilePath">[v_ResultFilePath]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
