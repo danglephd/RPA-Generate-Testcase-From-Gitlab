@@ -1,7 +1,7 @@
 {
   "name": "Testcase Generate from Gitlab",
   "description": "Blank Process",
-  "main": "FC\\FC - Create Test Issue.xaml",
+  "main": "FC\\FC - Update Finish Task.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.16.2]",
     "UiPath.Mail.Activities": "[1.18.2]",
@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.10.5.0",
-  "projectVersion": "1.0.1-alpha.1",
+  "projectVersion": "1.0.1-alpha.2",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,

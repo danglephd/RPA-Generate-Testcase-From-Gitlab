@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1210,3365.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1136,3614.6666666666665</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_task_Info_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -52,7 +52,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="53">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="106">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -105,9 +105,14 @@
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_task_Info" sap:VirtualizedContainerService.HintSize="594.6666666666666,3300.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_task_Info" sap:VirtualizedContainerService.HintSize="690.6666666666666,3550" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="v_Browser" />
     </Sequence.Variables>
@@ -116,21 +121,21 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="532.6666666666666,368" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="628.6666666666666,54" sap2010:WorkflowViewState.IdRef="CommentOut_4">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,288" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="558,304" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,177.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,199.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="338,66.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="434,88.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:Object[]">[a_CurrentRow]</OutArgument>
               </Assign.To>
@@ -150,14 +155,240 @@
           </Sequence>
         </Sequence>
       </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" ContinueOnError="False" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="532.6666666666666,2654.6666666666665" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[v_Browser]" Url="[a_CurrentRow(4).ToString]">
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" ContinueOnError="False" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="628.6666666666666,158" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" UiBrowser="[v_Browser]" Url="[a_CurrentRow(4).ToString]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="498.6666666666667,2550.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,195.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="ui:UiElement" Name="v_CommentItem" />
+                    <Variable x:TypeArguments="ui:UiElement" Name="v_AttachFileLinkItem" />
+                    <Variable x:TypeArguments="ui:UiElement" Name="v_CommentBt" />
+                    <Variable x:TypeArguments="ui:UiElement" Name="v_AttachItem" />
+                    <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="v_StatusItem" />
+                    <Variable x:TypeArguments="x:Int32" Name="v_length" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="532.6666666666666,92" sap2010:WorkflowViewState.IdRef="Delay_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Delay>
+                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[IsNothing(v_CommentItem)]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="532.6666666666666,388.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                    <ui:InterruptibleDoWhile.Body>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Comment Area" FoundElement="[v_CommentItem]" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+                          <ui:WaitUiElementAppear.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" InformativeScreenshot="bb6b60022513d753d27fa589aec420e5" Selector="&lt;webctrl id='note-body' tag='TEXTAREA' data-qa-selector='comment_field' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                          </ui:WaitUiElementAppear.Target>
+                        </ui:WaitUiElementAppear>
+                      </Sequence>
+                    </ui:InterruptibleDoWhile.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InterruptibleDoWhile>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SimulateType="{x:Null}" Activate="False" ClickBeforeTyping="True" DelayMS="100" DisplayName="Type Into Issue link" EmptyField="True" sap:VirtualizedContainerService.HintSize="532.6666666666666,115.33333333333333" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="True" Text="[&quot;Test Pass. &quot;&amp; vbCr &amp; vbCr &amp;&quot;Please check the attach file for test result detail.&quot;&amp; vbCr &amp; vbCr]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_CommentItem]" Id="e07e848f-90b3-4de2-b4a8-65c6b5be1fda" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:TypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:TypeInto>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="532.6666666666666,54" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WaitUiElementAppear ContinueOnError="False" DisplayName="Find Attach file link" FoundElement="[v_AttachFileLinkItem]" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2" WaitActive="True" WaitVisible="True">
+                          <ui:WaitUiElementAppear.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" InformativeScreenshot="bb6b60022513d753d27fa589aec420e5" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctr data-testid='button-attach-file' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                          </ui:WaitUiElementAppear.Target>
+                        </ui:WaitUiElementAppear>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:WaitUiElementAppear ContinueOnError="False" DisplayName="Find Attach file link" FoundElement="[v_AttachFileLinkItem]" sap:VirtualizedContainerService.HintSize="532.6666666666666,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_5" WaitActive="True" WaitVisible="True">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" InformativeScreenshot="bb6b60022513d753d27fa589aec420e5" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctr data-testid='button-attach-file' tag='BUTTON' aaname='Attach a file or image' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="False" DelayMS="100" DisplayName="Click- Attach file link" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_AttachFileLinkItem]" Id="365bc5d0-dc53-4928-8f9a-9040c1c6054d" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Click>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayMS="1000" DisplayName="Type Into 'Edit'" EmptyField="True" sap:VirtualizedContainerService.HintSize="532.6666666666666,135.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[a_CurrentRow(5).ToString + &quot;&#xA;&quot;]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7a4b3bdc-b5f9-4ff4-a9dd-05f02ae12107" InformativeScreenshot="30516bba3d6899c76175deecb2f7b9c8" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Attach SPAN" FoundElement="[v_AttachItem]" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_4">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctrl class='uploading-container' tag='SPAN' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[v_length &gt; 0]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="532.6666666666666,782" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                    <ui:InterruptibleDoWhile.Body>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,611.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:FindChildren Children="[v_StatusItem]" DisplayName="Find Status Upload SPAN" Filter="&lt;webctrl tag='SPAN' class='uploading-progress-container'/&gt;" sap:VirtualizedContainerService.HintSize="434,107.33333333333333" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
+                          <ui:FindChildren.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_AttachItem]" Id="893d3b26-23f8-46bd-ac81-82e9d4e3a2e8" InformativeScreenshot="6c4c89ff2356fba6e169c555ceecfb42" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                          </ui:FindChildren.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:FindChildren>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[v_length]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[v_StatusItem.ToArray().Length]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Delay Duration="00:00:00.1000000" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Delay_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Delay>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[v_length]" />
+                      </Sequence>
+                    </ui:InterruptibleDoWhile.Body>
+                  </ui:InterruptibleDoWhile>
+                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="532.6666666666666,92" sap2010:WorkflowViewState.IdRef="Delay_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Delay>
+                  <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Comment button" FoundElement="[v_CommentBt]" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctrl class='btn btn-confirm btn-md gl-button split-content-button' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="100" DisplayName="Click Comment button" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_CommentBt]" Id="1550b2b6-afba-4b25-a047-b43cf053dc0a" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:OpenBrowser>
+    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[v_Browser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="628.6666666666666,3020" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="594.6666666666666,2910.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:UiElement" Name="v_CommentItem" />
               <Variable x:TypeArguments="ui:UiElement" Name="v_AttachFileLinkItem" />
@@ -169,9 +400,10 @@
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="436.6666666666667,92" sap2010:WorkflowViewState.IdRef="Delay_2">
+            <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="532.6666666666666,92" sap2010:WorkflowViewState.IdRef="Delay_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -179,16 +411,16 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Delay>
-            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[IsNothing(v_CommentItem)]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="436.6666666666667,388.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[IsNothing(v_CommentItem)]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="532.6666666666666,388.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
               <ui:InterruptibleDoWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,218" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_16">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Comment Area" FoundElement="[v_CommentItem]" sap:VirtualizedContainerService.HintSize="338,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+                  <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Comment Area" FoundElement="[v_CommentItem]" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_6">
                     <ui:WaitUiElementAppear.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" InformativeScreenshot="bb6b60022513d753d27fa589aec420e5" Selector="&lt;webctrl id='note-body' tag='TEXTAREA' data-qa-selector='comment_field' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
                     </ui:WaitUiElementAppear.Target>
@@ -202,7 +434,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InterruptibleDoWhile>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SimulateType="{x:Null}" Activate="False" ClickBeforeTyping="True" DelayMS="100" DisplayName="Type Into Issue link" EmptyField="True" sap:VirtualizedContainerService.HintSize="436.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="True" Text="[&quot;Test Pass. &quot;&amp; vbCr &amp; vbCr &amp;&quot;Please check the attach file for test result detail.&quot;&amp; vbCr &amp; vbCr]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SimulateType="{x:Null}" Activate="False" ClickBeforeTyping="True" DelayMS="100" DisplayName="Type Into Issue link" EmptyField="True" sap:VirtualizedContainerService.HintSize="532.6666666666666,115.33333333333333" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="True" Text="[&quot;Test Pass. &quot;&amp; vbCr &amp; vbCr &amp;&quot;Please check the attach file for test result detail.&quot;&amp; vbCr &amp; vbCr]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_CommentItem]" Id="e07e848f-90b3-4de2-b4a8-65c6b5be1fda" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:TypeInto.Target>
@@ -213,12 +445,34 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:TypeInto>
-            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Attach file link" FoundElement="[v_AttachFileLinkItem]" sap:VirtualizedContainerService.HintSize="436.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="532.6666666666666,298" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:WaitUiElementAppear ContinueOnError="False" DisplayName="Find Attach file link" FoundElement="[v_AttachFileLinkItem]" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_7" WaitActive="True" WaitVisible="True">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" InformativeScreenshot="bb6b60022513d753d27fa589aec420e5" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctr data-testid='button-attach-file' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:WaitUiElementAppear ContinueOnError="False" DisplayName="Find Attach file link" FoundElement="[v_AttachFileLinkItem]" sap:VirtualizedContainerService.HintSize="532.6666666666666,107.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_8" WaitActive="True" WaitVisible="True">
               <ui:WaitUiElementAppear.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" InformativeScreenshot="bb6b60022513d753d27fa589aec420e5" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctrl aaname='*Attach a file*' parentid='notes' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" InformativeScreenshot="bb6b60022513d753d27fa589aec420e5" Selector="&lt;webctrl aaname='Attach a file or image' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:WaitUiElementAppear.Target>
             </ui:WaitUiElementAppear>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="False" DelayMS="100" DisplayName="Click- Attach file link" sap:VirtualizedContainerService.HintSize="436.6666666666667,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="False" DelayMS="100" DisplayName="Click- Attach file link" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -238,7 +492,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:Click>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayMS="1000" DisplayName="Type Into 'Edit'" EmptyField="True" sap:VirtualizedContainerService.HintSize="436.6666666666667,135.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[a_CurrentRow(5).ToString + &quot;&#xA;&quot;]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayMS="1000" DisplayName="Type Into 'Edit'" EmptyField="True" sap:VirtualizedContainerService.HintSize="532.6666666666666,135.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[a_CurrentRow(5).ToString + &quot;&#xA;&quot;]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7a4b3bdc-b5f9-4ff4-a9dd-05f02ae12107" InformativeScreenshot="30516bba3d6899c76175deecb2f7b9c8" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -250,20 +504,20 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Attach SPAN" FoundElement="[v_AttachItem]" sap:VirtualizedContainerService.HintSize="436.6666666666667,87.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_4">
+            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Attach SPAN" FoundElement="[v_AttachItem]" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_9">
               <ui:WaitUiElementAppear.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctrl class='uploading-container' tag='SPAN' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:WaitUiElementAppear.Target>
             </ui:WaitUiElementAppear>
-            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="436.6666666666667,760" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[v_length &gt; 0]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="532.6666666666666,782" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_4">
               <ui:InterruptibleDoWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,589.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,611.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:FindChildren Children="[v_StatusItem]" DisplayName="Find Status Upload SPAN" Filter="&lt;webctrl tag='SPAN' class='uploading-progress-container'/&gt;" sap:VirtualizedContainerService.HintSize="338,107.33333333333333" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
+                  <ui:FindChildren Children="[v_StatusItem]" DisplayName="Find Status Upload SPAN" Filter="&lt;webctrl tag='SPAN' class='uploading-progress-container'/&gt;" sap:VirtualizedContainerService.HintSize="434,107.33333333333333" sap2010:WorkflowViewState.IdRef="FindChildren_2" Scope="FIND_DESCENDANTS">
                     <ui:FindChildren.Target>
                       <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_AttachItem]" Id="893d3b26-23f8-46bd-ac81-82e9d4e3a2e8" InformativeScreenshot="6c4c89ff2356fba6e169c555ceecfb42" TimeoutMS="3000" WaitForReady="COMPLETE" />
                     </ui:FindChildren.Target>
@@ -273,7 +527,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:FindChildren>
-                  <Assign sap:VirtualizedContainerService.HintSize="338,63.333333333333336" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[v_length]</OutArgument>
                     </Assign.To>
@@ -281,7 +535,7 @@
                       <InArgument x:TypeArguments="x:Int32">[v_StatusItem.ToArray().Length]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Delay Duration="00:00:00.1000000" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="Delay_4">
+                  <Delay Duration="00:00:00.1000000" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Delay_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -289,14 +543,11 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Delay>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[v_length]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[v_length]" />
                 </Sequence>
               </ui:InterruptibleDoWhile.Body>
-              <ui:InterruptibleDoWhile.Condition>
-                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="v_length &gt; 0" />
-              </ui:InterruptibleDoWhile.Condition>
             </ui:InterruptibleDoWhile>
-            <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="436.6666666666667,92" sap2010:WorkflowViewState.IdRef="Delay_3">
+            <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="532.6666666666666,92" sap2010:WorkflowViewState.IdRef="Delay_7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -304,12 +555,12 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Delay>
-            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Comment button" FoundElement="[v_CommentBt]" sap:VirtualizedContainerService.HintSize="436.6666666666667,87.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Comment button" FoundElement="[v_CommentBt]" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_10">
               <ui:WaitUiElementAppear.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctrl class='btn btn-confirm btn-md gl-button split-content-button' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:WaitUiElementAppear.Target>
             </ui:WaitUiElementAppear>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="100" DisplayName="Click Comment button" sap:VirtualizedContainerService.HintSize="436.6666666666667,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="100" DisplayName="Click Comment button" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -326,15 +577,9 @@
             </ui:Click>
           </Sequence>
         </ActivityAction>
-      </ui:OpenBrowser.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:OpenBrowser>
-    <ui:CloseApplication DisplayName="Close Application" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+    <ui:CloseApplication DisplayName="Close Application" sap:VirtualizedContainerService.HintSize="628.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
       <ui:CloseApplication.Target>
         <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[v_Browser]" Id="e0acc34b-627f-4127-aa16-e2ddb2120689" TimeoutMS="3000" WaitForReady="COMPLETE" />
       </ui:CloseApplication.Target>
