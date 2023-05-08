@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.10.5.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1-alpha.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -21,6 +21,7 @@
     "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
     "excludedLoggedData": [
       "Private:*",
       "*password*"
@@ -55,6 +56,12 @@
     {
       "filePath": "Create Testcase\\Get List Issue From Gitlab.xaml",
       "uniqueId": "67860919-2817-4e87-ab2a-e57640e4270f",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "FC\\FC - Update Finish Task.xaml",
+      "uniqueId": "8232f9a2-f3a4-486e-8fe2-89f5ce66606a",
       "input": [],
       "output": []
     }
