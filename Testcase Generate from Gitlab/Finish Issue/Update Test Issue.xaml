@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1136,3614.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>680.6666666666666,3614.6666666666665</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_task_Info_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -129,13 +129,13 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,199.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,196.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,88.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="434,86" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:Object[]">[a_CurrentRow]</OutArgument>
               </Assign.To>
@@ -506,7 +506,7 @@
             </ui:TypeInto>
             <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="False" DisplayName="Find Attach SPAN" FoundElement="[v_AttachItem]" sap:VirtualizedContainerService.HintSize="532.6666666666666,87.33333333333333" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_9">
               <ui:WaitUiElementAppear.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" Selector="&lt;html app='msedge.exe' url='*git.iptp.net*' /&gt;&lt;webctrl class='uploading-container' tag='SPAN' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="485039e8-d6bf-41ee-af69-d7c1e950d048" Selector="&lt;webctrl class='uploading-container*' tag='SPAN' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:WaitUiElementAppear.Target>
             </ui:WaitUiElementAppear>
             <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[v_length &gt; 0]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="532.6666666666666,782" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_4">
